@@ -10,6 +10,12 @@ services:
       - discovery.type=single-node
     volumes:
       - es-data:/usr/share/elasticsearch/data
+  web:
+    image: nginx:alpine
+    ports:
+      - "8081:80"
+    volumes:
+      - ./dist:/usr/share/nginx/html
 
 volumes:
   es-data:
